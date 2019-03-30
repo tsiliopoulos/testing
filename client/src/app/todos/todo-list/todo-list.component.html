@@ -1,0 +1,47 @@
+<div id="about" class="container container-fade">
+  <div class="container container-inside-light">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-12">
+          <h1>Todo List</h1>
+          <br>
+          <table class="table table-bordered table-striped table-hover">
+            <!-- Header Row-->
+            <tr>
+              <th class="text-center">Subject</th>
+              <th class="text-center">Description</th>
+              <th class="text-center">Category</th>
+              <th class="text-center">Date</th>
+              <th class="text-center"></th>
+              <th class="text-center"></th>
+            </tr>
+
+            <!-- Repeatable Template Row -->
+            <tr *ngFor="let todo of todos">
+              <td class="text-center">{{ todo.subject }}</td>
+              <td class="text-center">{{ todo.description }}</td>
+              <td class="text-center">{{ todo.category }}</td>
+              <td class="text-center">{{ todo.date | date : "MMMM d, y"  }}</td>
+
+              <!-- Edit Todo Button -->
+              <td class="text-center">
+                <a routerLink="/todo-list/edit/{{ todo._id }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i>
+                  Edit</a>
+              </td>
+
+              <!-- Delete Todo Button -->
+              <td class="text-center">
+                <a routerLink="/todo-list/delete/{{ todo._id }}" (click)="onDeleteClick()" class="btn btn-danger"><i
+                    class="fas fa-trash-alt"></i> Delete</a>
+              </td>
+            </tr>
+          </table>
+
+          <a class="btn btn-primary" routerLink="/todo-list/add" role="button">
+            <i class="fas fa-plus-circle"></i> Add Todo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

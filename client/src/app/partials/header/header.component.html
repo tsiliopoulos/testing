@@ -1,0 +1,51 @@
+<!-- MEAN Portfolio-->
+<!-- File Name: header.component.html-->
+<!-- Author: Minseok Choi-->
+<!-- StudentID: 300917184-->
+<!-- Date: 03/29/2019-->
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
+  <a class="navbar-brand" routerLink="/"><img class="img-logo-name"
+      src="/assets/images/logo_name.jpg"> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/"> Home
+          <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/products"> Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/services"> Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact"> Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/todo-list"> Todo</a>
+      </li>
+
+      <li *ngIf="!isLoggedIn()" class="nav-item"><a routerLink="/login" class="nav-link">
+        <i class="fas fa-lg fa-sign-in-alt"></i>
+        Login</a></li>
+
+      <li *ngIf="isLoggedIn()" class="navbar-text ml-5 mr-5 d-none d-lg-inline">
+        <i class="fas fa-lg fa-user"></i>
+        Welcome, {{ user.displayName }}</li>
+
+      <li *ngIf="isLoggedIn()" class="nav-item"><a (click)="onLogoutClick()" routerLink="/logout" class="nav-link">
+          <i class="fas fa-lg fa-sign-out-alt"></i>
+          Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- Background Image Container-->
